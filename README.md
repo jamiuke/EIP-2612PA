@@ -2,7 +2,7 @@
 
 An **EIP-2612 Permit Auditor** for the [Pharos Network](https://pharos.xyz). Point it at any contract on Pharos Atlantic Testnet or Pacific Ocean Mainnet and it returns a per-check report on the deployed bytecode — verifying the `permit()` selector, the `nonces()` getter, the `Permit(...)` type-hash literal, and that the ecrecover precompile is actually used for signature recovery.
 
-Designed to be used two ways: paste the address in your AI agent and ask *"is this permit safe?"*, or run the bash/python forms directly from your own terminal. Works with Claude Code, Codex, OpenClaw, and the Pharos Agent Center skills directory. Pairs naturally with **eip712dsa** — audit the EIP-712 domain separator first, then the permit function.
+Designed to be used two ways: paste the address in your AI agent and ask *"is this permit safe?"*, or run the bash/python forms directly from your own terminal. Works with Claude Code, Codex, OpenClaw, and the Pharos Agent Center skills directory.
 
 ## What it checks
 
