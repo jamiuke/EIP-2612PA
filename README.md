@@ -1,8 +1,8 @@
 # eip2612pa
 
-An **EIP-2612 Permit Auditor** for the [Pharos Network](https://pharos.xyz). Give it a contract address on Pharos Atlantic Testnet or Pacific Ocean Mainnet, and it audits the deployed bytecode for EIP-2612 correctness — checks the `permit()` selector, verifies the `nonces()` getter, looks for the `Permit(...)` type-hash literal, and confirms the ecrecover precompile is used for signature recovery.
+An **EIP-2612 Permit Auditor** for the [Pharos Network](https://pharos.xyz). Point it at any contract on Pharos Atlantic Testnet or Pacific Ocean Mainnet and it returns a per-check report on the deployed bytecode — verifying the `permit()` selector, the `nonces()` getter, the `Permit(...)` type-hash literal, and that the ecrecover precompile is actually used for signature recovery.
 
-Ships as a [Pharos Agent Center](https://www.pharos.xyz/agent-center) skill — drop it into Claude / Codex / OpenClaw and the agent can audit any Pharos contract's EIP-2612 implementation on demand.
+Designed to be used two ways: paste the address in your AI agent and ask *"is this permit safe?"*, or run the bash/python forms directly from your own terminal. Works with Claude Code, Codex, OpenClaw, and the Pharos Agent Center skills directory. Pairs naturally with **eip712dsa** — audit the EIP-712 domain separator first, then the permit function.
 
 ## What it checks
 
@@ -172,12 +172,12 @@ pip install web3
 
 | Framework | Compatible? | How to use |
 |---|---|---|
-| Pharos Agent Center (official) | ✅ yes | drop `SKILL.md` into `~/.pharos/skills/eip2612pa/` |
-| Claude Code | ✅ yes | drop `SKILL.md` into `~/.claude/skills/` |
-| Codex | ✅ yes | drop `SKILL.md` into `~/.codex/skills/` |
+| Pharos Agent Center | ✅ yes | `cp -r . ~/.pharos/skills/eip2612pa` (or symlink) |
+| Claude Code | ✅ yes | `cp -r . ~/.claude/skills/eip2612pa` |
+| Codex | ✅ yes | `cp -r . ~/.codex/skills/eip2612pa` |
 | OpenClaw | ✅ yes | `npx skills add https://github.com/jamiuke/EIP-2612PA` |
-| Raw CLI / cron | ✅ yes | `bash scripts/audit.sh 0x...` — no agent needed |
-| Any agent that reads SKILL.md | ✅ yes | triggers on "audit", "EIP-2612", "permit" |
+| Raw CLI / cron / CI | ✅ yes | `bash scripts/audit.sh 0x... --strict` — exits non-zero on any FAIL |
+| Any agent that reads SKILL.md | ✅ yes | description front-matter triggers on "audit", "EIP-2612", "permit" |
 
 ## Tests
 
