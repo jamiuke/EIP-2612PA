@@ -1,0 +1,17 @@
+{
+  "_comment": "Top function selectors used by the EIP-2612 auditor. The auditor uses these to identify which functions the contract exposes and adjust the audit scope.",
+  "selectors": {
+    "0xd505accf": "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)",
+    "0x7ecebe00": "nonces(address)",
+    "0x3644e515": "DOMAIN_SEPARATOR()",
+    "0x06fdde03": "name()",
+    "0x95d89b41": "symbol()",
+    "0x18160ddd": "totalSupply()",
+    "0x70a08231": "balanceOf(address)",
+    "0xa9059cbb": "transfer(address,uint256)",
+    "0x23b872dd": "transferFrom(address,address,uint256)",
+    "0x095ea7b3": "approve(address,uint256)",
+    "0xdd62ed3e": "allowance(address,address)",
+    "0x8fcbaf23": "removeLiquidity(address,address,uint256,uint256,uint256,address,uint256)"
+  }
+}
